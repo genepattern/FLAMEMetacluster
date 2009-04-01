@@ -1,0 +1,70 @@
+#FLAMEmetacluster
+#Wed Jan 21 15:46:48 EST 2009
+JVMLevel=2.7
+author=
+commandLine=<R-2.7.2> <libdir>metaClustering.bp.R parseCmdLine <libdir> <optimal.g.mixture.model> <estimation.increment> <output.intermediate.results> <output.prefix> <sample.class>
+cpuType=any
+description=
+fileFormat=zip
+language=R
+name=FLAMEmetacluster
+os=any
+
+p1_MODE=IN
+p1_TYPE=FILE
+p1_default_value=
+p1_description=A .zip file containing the optimal mixture modeling result of each sample from the output of the FLAMEchooseG module.
+p1_fileFormat=zip
+p1_name=optimal.g.mixture.model
+p1_optional=
+p1_prefix_when_specified=
+p1_type=java.io.File
+p1_value=
+
+p2_MODE=IN
+p2_TYPE=FILE
+p2_default_value=
+p2_description=
+p2_fileFormat=txt
+p2_name=sample.class
+p2_optional=on
+p2_prefix_when_specified=
+p2_type=java.io.File
+p2_value=
+
+p3_default_value=0.5
+p3_description=Only used for skew distributions. This is the increment for estimation of modes. The value must be greater than 0 and less than 1. Must be the same value used in the FLAMEmixturemodel.
+p3_fileFormat=
+p3_name=estimation.increment
+p3_optional=
+p3_prefix_when_specified=
+p3_type=java.lang.String
+p3_value=
+
+p4_default_value=F
+p4_description=Choose whether to output the intermediate metaclustering results, such as within-class matching results.
+p4_fileFormat=
+p4_name=output.intermediate.results
+p4_optional=
+p4_prefix_when_specified=
+p4_type=java.lang.String
+p4_value=T=yes;F=no
+
+p5_default_value=<optimal.g.mixture.model_basename>
+p5_description=A prefix for output files.
+p5_fileFormat=
+p5_name=output.prefix
+p5_optional=
+p5_prefix_when_specified=
+p5_type=java.lang.String
+p5_value=
+
+pipelineModel=
+privacy=private
+quality=development
+requiredPatchLSIDs=
+requiredPatchURLs=
+serializedModel=
+taskType=Clustering
+userid=xinlihu
+version=Updated documentation
