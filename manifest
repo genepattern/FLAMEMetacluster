@@ -4,10 +4,10 @@ JVMLevel=2.7
 author=
 commandLine=<R-2.7.2> <libdir>metaClustering.bp.R parseCmdLine <libdir> <optimal.g.mixture.model> <estimation.increment> <output.intermediate.results> <output.prefix> <sample.class>
 cpuType=any
-description=
+description=Matches populations/clusters across all samples in the dataset and assembles a table of all the parameters in the samples
 fileFormat=zip
 language=R
-name=FLAMEmetacluster
+name=FLAMEMetacluster
 os=any
 
 p1_MODE=IN
