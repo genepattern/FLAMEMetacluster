@@ -39,6 +39,15 @@ plotHeatmap <- function(paramfiles, concatfiles, dist) {
 	    CairoPNG(filename = paste(fname, "heatmap.png",sep='.'),height = 960*1.5, width = 960*1.5)
     }
 
+    if(.Platform$OS.type == "unix")
+	{
+	    heatmap.colors <- redblue(75)
+	}
+	else
+	{
+	    heatmap.colors <- bluered(75)
+	}
+
 	heatmap.2(heatmap, Colv=F, Rowv=F, col = bluered(75),scale = "column", dendrogram="none", key=T,
 	keysize = F,symkey=F,density.info = "none",cellnote=round(heatmap,1),notecex=2,notecol="black",trace="none",rowsep=nrow(heatmap)-3,sepcolor="white", main = paste(fname,"cluster log intensities",sep=''))
 	dev.off()
