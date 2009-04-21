@@ -40,7 +40,7 @@ plotHeatmap <- function(paramfiles, concatfiles, dist) {
     }
 
 	heatmap.2(heatmap, Colv=F, Rowv=F, col = bluered(75),scale = "column", dendrogram="none", key=T,
-	keysize = 1,symkey=F,density.info = "none",cellnote=round(heatmap,1),notecex=2,notecol="black",trace="none",rowsep=nrow(heatmap)-3,sepcolor="white", main = paste(fname,"cluster log intensities",sep=''))
+	keysize = F,symkey=F,density.info = "none",cellnote=round(heatmap,1),notecex=2,notecol="black",trace="none",rowsep=nrow(heatmap)-3,sepcolor="white", main = paste(fname,"cluster log intensities",sep=''))
 	dev.off()
 	}
 }
