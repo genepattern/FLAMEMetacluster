@@ -254,6 +254,7 @@ dim = dim,
 num.samples=num.samples,
 fileset.name=output.prefix)
 
+zip.file(libdir = libdir,files =  "*legend.png",outfile = paste(output.prefix,"FinalAlignedClusters.zip",sep='.'))
 zip.file(libdir = libdir,files =  "*.pairplots.png",outfile = paste(output.prefix,"FinalAlignedClusters.zip",sep='.'))
 zip.file(libdir = libdir,files =  "*.heatmap.png",outfile = paste(output.prefix,"FinalAlignedClusters.zip",sep='.'))
 zip.file(libdir = libdir,files =  "*.locations.txt",outfile = paste(output.prefix,"FinalAlignedClusters.zip",sep='.'))
