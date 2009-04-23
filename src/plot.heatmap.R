@@ -49,12 +49,12 @@ plotHeatmap <- function(paramfiles, concatfiles, dist) {
 	}
 
     column.names <- colnames(heatmap)
-    long.names <- column.names[nchar(column.names) > 15]
+    long.names <- column.names[nchar(column.names) > 12]
     if(length(long.names) > 0)
     {
         trunc.names <- paste(substring(long.names, 1, 5), substring(long.names, nchar(long.names)-4, nchar(long.names)), sep='...')
 
-        column.names[nchar(column.names) > 15] <- trunc.names
+        column.names[nchar(column.names) > 12] <- trunc.names
         colnames(heatmap) <- column.names
     }
 
