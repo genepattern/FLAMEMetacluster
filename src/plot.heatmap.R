@@ -48,8 +48,20 @@ plotHeatmap <- function(paramfiles, concatfiles, dist) {
 	    heatmap.colors <- bluered(75)
 	}
 
-	heatmap.2(heatmap, Colv=F, Rowv=F, col = bluered(75),scale = "column", dendrogram="none", key=T,
-	keysize = F,symkey=F,density.info = "none",cellnote=round(heatmap,1),notecex=2,notecol="black",trace="none",rowsep=nrow(heatmap)-3,sepcolor="white", main = paste(fname,"cluster log intensities",sep=''))
+    column.names <- colnames(heatmap)
+    long.names <- column.names[nchar(column.names) > 15]
+    if(length(long.names) > 0)
+    {
+        trunc.names <- paste(substring(long.names, 1, 5), substring(long.names, nchar(long.names)-4, nchar(long.names)), sep='...')
+
+        column.names[nchar(column.names) > 15] <- trunc.names
+        colnames(heatmap) <- column.names
+    }
+
+	heatmap.2(heatmap, Colv=F, Rowv=F, col = bluered(75),scale = "column", dendrogram="none", key=F, symkey=F, keysize = 0.3,
+	    margin=c(15, 7) , density.info = "none", cellnote=round(heatmap,1), notecex=2, notecol="black", trace="none",
+	    rowsep=nrow(heatmap)-3, sepcolor="white", main = paste(fname,"cluster log intensities",sep=''))
+
 	dev.off()
 	}
 }
