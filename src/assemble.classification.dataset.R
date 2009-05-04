@@ -1,7 +1,7 @@
 makeDataset<-function(stage, classes, all.k, dim, num.samples, fileset.name) {
 allsamples.param <- c()
 files.names <- c()
-input.classes <- c()
+input.classes.number <- c()
 for (c in 1:length(classes)) {
 	class.param<-c()
 	pfiles <- dir("./", pattern = classes[c])
@@ -10,8 +10,8 @@ for (c in 1:length(classes)) {
 		print(paste("class",c,"file",f,sep = '.'))
 		file.name <- paste(classes[c],f,sep = ".")
 		files.names <- c(files.names, file.name)
-		input.class <- classes[c]
-		input.classes <- c(input.classes, input.class)
+		input.class <- (c-1)
+		input.classes.number <- c(input.classes.number, input.class)
 		parfile <- read.table(pfiles[f], header = T, sep = "\t")
 		c.props = matrix(na.omit(parfile$props))
 		#c.props = matrix(parfile$props[dim*c((1:all.k)-1)+1])
@@ -114,7 +114,7 @@ sep = "\t", row.names = F, quote =F)
 dataset <- data.frame(dataset)
 cat("#1.2","\n",file=paste(fileset.name,"mixture.output", stage,"gct",sep="."))
 cat(dim(allsamples.param),"\n",sep="\t",file=paste(fileset.name,"mixture.output", stage,"gct",sep="."),append=T)
-write.table(dataset,sep="\t",file=paste(fileset.name,"mixture.output", stage,"gct",sep="."),append=T,row.names=F)
+write.table(dataset,sep="\t",file=paste(fileset.name,"mixture.output", stage,"gct",sep="."),append=T,row.names=F,quote=FALSE)
 
 #make cls file#
 input.names<-vector(length=num.samples)
@@ -124,7 +124,9 @@ cat(number.people,number.classes,1,sep=" ",file=paste(fileset.name,"mixture.outp
 cat("\n",file=paste(fileset.name, "mixture.output", stage,"cls",sep="."),append=T)
 cat("#"," ", classes, file=paste(fileset.name, "mixture.output", stage,"cls",sep="."),append=T)
 cat("\n",file=paste(fileset.name,"mixture.output", stage,"cls",sep="."),append=T)
-cat(input.classes,sep=" ",file=paste(fileset.name,"mixture.output", stage,"cls",sep="."),append=T)
+
+#convert class names to numbers starting with 0
+cat(input.classes.number,sep=" ",file=paste(fileset.name,"mixture.output", stage,"cls",sep="."),append=T)
 
 ###END MAKING DATASET FILE FOR CLASSIFICATION###
 }
