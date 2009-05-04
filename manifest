@@ -33,7 +33,7 @@ p2_type=java.io.File
 p2_value=
 
 p3_default_value=0.5
-p3_description=Only used for skew distributions. This is the increment for estimation of modes. The value must be greater than 0 and less than 1. Must be the same value used in the FLAMEmixturemodel.
+p3_description=Used only for skew distributions. Step is used to calculate the number of iterations of the Expection-Maximization(EM) algorithm to perform when computing the Maximum Likelihood(ML) estimate. ML estimation is used to obtain the optimal parameters of the parametric mixture model distribution for each cluster. The value must be greater than 0 and less than 1; the default value is 0.5. The smaller the increment, the more accurate the mode estimation, but the slower the estimation step. Must be the same value used in the FLAMEMixtureModel.
 p3_fileFormat=
 p3_name=estimation.increment
 p3_optional=
