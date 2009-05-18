@@ -18,8 +18,6 @@ parseCmdLine <- function(...)
 
 cleanup <- function()
 {
-    file.remove(temp.files)
-
     files <- list.files()
     for (i in 1:length(files))
     {
@@ -90,17 +88,6 @@ if(libdir!='')
     setLibPath(libdir)
     install.required.packages(libdir)
 }
-
-#metacluster.packages <- function() {
-#	packages <- c("lpSolve","cluster","calibrate","sn","compositions","mclust","gplots")
-#	LoadPackages(packages)
-#}
-#source("http://bioconductor.org/biocLite.R")
-#biocLite("lpSolve")
-#biocLite("cluster")
-
-#unzip preprocessed data
-#optimalGfiles <- unzip.file(OptimalG, getwd())@extracted
 
 temp.dir <- paste(wkdir, "temp", sep="/")
 dir.create(temp.dir)
@@ -253,6 +240,9 @@ all.k = n.metaclusters,
 dim = dim,
 num.samples=num.samples,
 fileset.name=output.prefix)
+
+#remove files extracted from input zip file
+file.remove(temp.files)
 
 zip.file(libdir = libdir,files =  "*legend.png",outfile = paste(output.prefix,"FinalAlignedClusters.zip",sep='.'))
 zip.file(libdir = libdir,files =  "*.pairplots.png",outfile = paste(output.prefix,"FinalAlignedClusters.zip",sep='.'))
