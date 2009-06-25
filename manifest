@@ -2,7 +2,7 @@
 #Wed Jan 21 15:46:48 EST 2009
 JVMLevel=2.7
 author=
-commandLine=<R-2.7.2> <libdir>metaClustering.bp.R parseCmdLine <libdir> <optimal.g.mixture.model> <estimation.increment> <output.intermediate.results> <output.prefix> <sample.class>
+commandLine=<R-2.7.2> <libdir>metaClustering.bp.R parseCmdLine <libdir> <optimal.g.mixture.model> <estimate.mode> <estimation.increment> <output.intermediate.results> <output.prefix> <sample.class>
 cpuType=any
 description=Matches populations/clusters across all samples in the dataset, assembles a table of all parameters in all samples
 fileFormat=zip
@@ -32,32 +32,40 @@ p2_prefix_when_specified=
 p2_type=java.io.File
 p2_value=
 
-p3_default_value=0.5
-p3_description=Used only for skew distributions. Step is used to calculate the number of iterations of the Expectation-Maximization(EM) algorithm to perform when computing the Maximum Likelihood(ML) estimate. The value must be greater than 0 and less than 1. The smaller the increment, the more accurate the estimation, but the slower the estimation step. Must be the same value used in the FLAMEMixtureModel.
-p3_fileFormat=
-p3_name=estimation.increment
+p3_default_value=T
+p3_description=Used only for skew distributions and when estimate mode is set to yes. Whether to estimate the mode for each cluster. Bypassing mode estimation speeds up the analysis.
+p3_name=estimate.mode
 p3_optional=
 p3_prefix_when_specified=
 p3_type=java.lang.String
-p3_value=
+p3_value=T=yes;F=no
 
-p4_default_value=F
-p4_description=Choose whether to output the intermediate metaclustering results, such as within-class matching results.
+p4_default_value=0.5
+p4_description=Used only for skew distributions. Step is used to calculate the number of iterations of the Expectation-Maximization(EM) algorithm to perform when computing the Maximum Likelihood(ML) estimate. The value must be greater than 0 and less than 1. The smaller the increment, the more accurate the estimation, but the slower the estimation step. Must be the same value used in the FLAMEMixtureModel.
 p4_fileFormat=
-p4_name=output.intermediate.results
+p4_name=estimation.increment
 p4_optional=
 p4_prefix_when_specified=
 p4_type=java.lang.String
-p4_value=T=yes;F=no
+p4_value=
 
-p5_default_value=<optimal.g.mixture.model_basename>
-p5_description=A prefix for output files.
+p5_default_value=F
+p5_description=Choose whether to output the intermediate metaclustering results, such as within-class matching results.
 p5_fileFormat=
-p5_name=output.prefix
+p5_name=output.intermediate.results
 p5_optional=
 p5_prefix_when_specified=
 p5_type=java.lang.String
-p5_value=
+p5_value=T=yes;F=no
+
+p6_default_value=<optimal.g.mixture.model_basename>
+p6_description=A prefix for output files.
+p6_fileFormat=
+p6_name=output.prefix
+p6_optional=
+p6_prefix_when_specified=
+p6_type=java.lang.String
+p6_value=
 
 pipelineModel=
 privacy=private
