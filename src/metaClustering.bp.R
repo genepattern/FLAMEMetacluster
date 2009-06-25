@@ -33,8 +33,8 @@ cleanup <- function()
 metaCluster <- function(
 libdir, #full pathname to where FLAME program files are kept
 OptimalG, #full pathname to OptimalG,zip
-#class.difference, #{T,F} whether samples belong to different classes
-step=0.1,
+mode.estimation ="F",
+step=0.5,
 output.intermediate.results, #default is no
 output.prefix, #<studyname_dataname>
 sample.class=NA #optional; full pathname to supporting file describing class membership of samples
@@ -199,7 +199,7 @@ all.memberfiles <- all.memberfiles [grep("matched.",all.memberfiles)]
 all.paramfiles <- dir(pattern="parameters.txt")
 all.medoids <- dir(pattern="medoids.txt")
 
-rearrange.parameters(all.memberfiles,all.paramfiles,all.medoids,n.metaclusters,dist,class.difference,step,OS) 
+rearrange.parameters(all.memberfiles,all.paramfiles,all.medoids,n.metaclusters,dist,class.difference,mode.estimation,step,OS) 
 
 #################################
 ##### PLOT ALIGNED CLUSTERs #####

@@ -1,4 +1,4 @@
-rearrange.parameters <- function(all.memberfiles,all.paramfiles,all.medoids,n.metaclusters,dist,class.difference,step,OS) {
+rearrange.parameters <- function(all.memberfiles,all.paramfiles,all.medoids,n.metaclusters,dist,class.difference,mode.estimation,step,OS) {
 	for (i in 1:length(all.memberfiles)) {
 		paramfile <- all.paramfiles[i]
 		filename <- strsplit(paramfile,paste('.',dist,sep=''))[[1]][1]
@@ -9,12 +9,12 @@ rearrange.parameters <- function(all.memberfiles,all.paramfiles,all.medoids,n.me
 			classname = strsplit(prefix,"matched.")[[1]][2]
 		} else { classname="matched" }
 		medoidfile <- all.medoids[grep(classname,all.medoids)]
-		rearrange(memberfile,paramfile,medoidfile,n.metaclusters,dist,class.difference,classname,filename,OS=OS,step=step)
+		rearrange(memberfile,paramfile,medoidfile,n.metaclusters,dist,class.difference,classname,filename,OS=OS,mode.estimation=mode.estimation,step=step)
 	}
 }
 
 rearrange <- function(memberfile,paramfile,medoidfile,n.metaclusters,
-dist = "mst",class.difference,classname,filename,OS="Windows",step=0.1) {
+dist = "mst",class.difference,classname,filename,OS="Windows",mode.estimation = "F",step=0.5) {
 
 suppressMessages(library(cluster))
 member <- read.table(memberfile,header=T)
@@ -137,8 +137,11 @@ for (c in 1:n.metaclusters) {
 		c.param[1,1] = dim(dat)[1]/dim(member)[1]
 		obj <- EmSkew(dat=dat,ng=1,dist=ndist,ncov=3,seed=123456,OS=OS)
 		if (ndist == 3 | ndist == 4) {
-		obb <-  EmSkewMOD(ndist,obj$mu,obj$sigma,step=step,obj$delta,obj$dof)
-		obj$mod <- obb$modpts
+			if (mode.estimtaion == "T") {
+				obb <-  EmSkewMOD(ndist,obj$mu,obj$sigma,step=step,obj$delta,obj$dof)
+				obj$mod <- obb$modpts
+			}
+			if (mode.estimation == "F") {obj$mod <- obj$mu}
 		}
 		if (ndist == 1 | ndist == 2) {
 		obj$mod = obj$mu
