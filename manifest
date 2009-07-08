@@ -13,7 +13,7 @@ os=any
 p1_MODE=IN
 p1_TYPE=FILE
 p1_default_value=
-p1_description=A .zip file containing the optimal mixture modeling result of each sample from the output of the FLAMEchooseG module.
+p1_description=A .zip file containing the optimal mixture modeling result of each sample from the output of the FLAMEChooseOptimalClusterNumber module.
 p1_fileFormat=zip
 p1_name=optimal.g.mixture.model
 p1_optional=
@@ -32,7 +32,7 @@ p2_prefix_when_specified=
 p2_type=java.io.File
 p2_value=
 
-p3_default_value=T
+p3_default_value=F
 p3_description=Used only for skew distributions and when estimate mode is set to yes. Whether to estimate the mode for each cluster. Bypassing mode estimation speeds up the analysis.
 p3_name=estimate.mode
 p3_optional=
