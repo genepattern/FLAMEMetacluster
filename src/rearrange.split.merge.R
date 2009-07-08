@@ -137,7 +137,7 @@ for (c in 1:n.metaclusters) {
 		c.param[1,1] = dim(dat)[1]/dim(member)[1]
 		obj <- EmSkew(dat=dat,ng=1,dist=ndist,ncov=3,seed=123456,OS=OS)
 		if (ndist == 3 | ndist == 4) {
-			if (mode.estimtaion == "T") {
+			if (mode.estimation == "T") {
 				obb <-  EmSkewMOD(ndist,obj$mu,obj$sigma,step=step,obj$delta,obj$dof)
 				obj$mod <- obb$modpts
 			}
