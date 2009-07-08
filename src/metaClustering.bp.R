@@ -97,6 +97,10 @@ unlink(temp.dir, recursive = TRUE)
 
 unzip.file(OptimalG, getwd())
 
+if(length(dir(pattern="OptimalGSpecs.ret")) == 0)
+{
+    stop(paste("Could not find any OptimalGSpecs.ret files in", OptimalG))
+}
 specs <- dget(dir("./",pattern="OptimalGSpecs.ret"))
 bestG.range <- specs$bestG.range
 dist = specs$dist
