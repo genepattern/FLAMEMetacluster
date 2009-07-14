@@ -121,9 +121,9 @@ if (class.difference == "T") {
       num.classes = length(classes)
 
 #   check that number of samples is the same as the number of samples in class info
-    if(length(allconcatfiles) != nrows(class.info))
+    if(length(allconcatfiles) != nrow(class.info))
     {
-        stop(paste("Number of samples in sample class file:" , nrows(class.info),
+        stop(paste("Number of samples in sample class file:" , nrow(class.info),
                     "is not equal to number of samples in dataset:", length(allconcatfiles)))
     }
     
