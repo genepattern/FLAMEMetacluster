@@ -119,6 +119,14 @@ if (class.difference == "T") {
 	class.info <- as.matrix(read.table(sample.class, header=T))
       classes <- as.vector(unique(class.info[,2]))
       num.classes = length(classes)
+
+#   check that number of samples is the same as the number of samples in class info
+    if(length(allconcatfiles) != nrows(class.info))
+    {
+        stop(paste("Number of samples in sample class file:" , nrows(class.info),
+                    "is not equal to number of samples in dataset:", length(allconcatfiles)))
+    }
+    
 #	gather files for each class
 	all.concat <- array(NA,dim=c(num.samples,1,num.classes))
 	all.param <- array(NA,dim=c(num.samples,1,num.classes))
@@ -131,7 +139,12 @@ if (class.difference == "T") {
 		class.param <- c()
 		class.locations <- c()
 		for (i in 1:length(samples)){
-			this.concat <- allconcatfiles[grep(samples[i],allconcatfiles)]
+		    sampleIndex <- grep(samples[i],allconcatfiles)
+		    if(length(sampleIndex) == 0)
+		    {
+		        stop(paste("Could not find sample", samples[i]))
+		    }
+			this.concat <- allconcatfiles[sampleIndex]
 			class.concat <- c(class.concat, this.concat)
 			this.param <- allparamfiles[grep(samples[i],allparamfiles)]
 			class.param <- c(class.param, this.param)
