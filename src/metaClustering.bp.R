@@ -297,7 +297,7 @@ install.required.packages <- function(libdir)
 {
     if(!is.package.installed(libdir, "mclust"))
     {
-		install.package(libdir, "mclust_3.1-10.zip", "mclust_3.1-10.tgz", "mclust_3.1-10.tar.gz")
+		install.package(libdir, "mclust_3.3.1.zip", "mclust_3.3.1.tgz", "mclust_3.3.1.tar.gz")
 	}
 	if(!is.package.installed(libdir, "lpSolve"))
 	{
@@ -319,14 +319,17 @@ install.required.packages <- function(libdir)
     {
 		install.package(libdir, "scatterplot3d_0.3-27.zip", "scatterplot3d_0.3-27.tgz", "scatterplot3d_0.3-27.tar.gz")
 	}
-	if(!is.package.installed(libdir, "rgl"))
-    {
-		install.package(libdir,"rgl_0.82.zip", "rgl_0.82.tgz", "rgl_0.82.tar.gz")
-	}
+
 	if(!is.package.installed(libdir, "tensorA"))
     {
 		install.package(libdir, "tensorA_0.31.zip", "tensorA_0.31.tgz", "tensorA_0.31.tar.gz")
 	}
+
+	if(!is.package.installed(libdir, "rgl"))
+    {
+        install.package(libdir,"rgl_0.82.zip", "rgl_0.82.tgz", "rgl_0.82.tar.gz")
+	}
+
 	if(!is.package.installed(libdir, "compositions"))
     {
 		install.package(libdir, "compositions_0.91-6.zip", "compositions_0.91-6.tgz","compositions_0.91-6.tar.gz")
