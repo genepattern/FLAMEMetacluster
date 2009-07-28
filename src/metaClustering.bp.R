@@ -325,13 +325,8 @@ install.required.packages <- function(libdir)
 		install.package(libdir, "tensorA_0.31.zip", "tensorA_0.31.tgz", "tensorA_0.31.tar.gz")
 	}
 
-	if(!is.package.installed(libdir, "rgl"))
-    {
-        install.package(libdir,"rgl_0.82.zip", "rgl_0.82.tgz", "rgl_0.82.tar.gz")
-	}
-
 	if(!is.package.installed(libdir, "compositions"))
     {
-		install.package(libdir, "compositions_0.91-6.zip", "compositions_0.91-6.tgz","compositions_0.91-6.tar.gz")
+		install.package(libdir, "compositions_0.91-6_modified.zip", "compositions_0.91-6_modified.tgz","compositions_0.91-6_modified.tar.gz")
 	}
 }
