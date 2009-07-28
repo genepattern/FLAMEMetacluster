@@ -295,6 +295,10 @@ if(output.intermediate.results == "T")
 
 install.required.packages <- function(libdir)
 {
+    if(!is.package.installed(libdir, "cluster"))
+    {
+		install.package(libdir, "cluster_1.12.0.zip", "cluster_1.12.0.tgz", "cluster_1.12.0.tar.gz")
+	}
     if(!is.package.installed(libdir, "mclust"))
     {
 		install.package(libdir, "mclust_3.3.1.zip", "mclust_3.3.1.tgz", "mclust_3.3.1.tar.gz")
