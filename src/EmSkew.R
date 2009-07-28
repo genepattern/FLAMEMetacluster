@@ -58,7 +58,7 @@ msg<-switch(error,
 '3' = paste("estep fails (singular covariance matrix),try more initial partitions"))
 
 cat('\n-----------------------\n\n')
-cat(msg,"\n")
+cat(msg,'\n')
 cat('\n-----------------------\n\n')
 
 ret<-NULL
