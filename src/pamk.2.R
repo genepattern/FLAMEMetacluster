@@ -18,8 +18,9 @@ pamk.2 <- function (classname, data, krange = 2:10, scaling = FALSE, diss = inhe
     {
         png(paste(classname,"asw.png",sep='.'),width=960,height=960)
     }
-    else{
-        library(Cairo, lib.loc=Sys.getenv("R_LIBS"))
+    else
+    {
+        library(Cairo)        
         CairoPNG(paste(classname,"asw.png",sep='.'),width=960,height=960)    
     }
     plot(krange,asw[krange],type='b',xlab='k',ylab='silhouette width',main=paste(classname,"asw",sep='.'))

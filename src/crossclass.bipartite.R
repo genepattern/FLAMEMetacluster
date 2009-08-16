@@ -217,7 +217,7 @@ if (.Platform$OS.type == "windows")
 }
 else
 {
-    library(Cairo, lib.loc=Sys.getenv("R_LIBS"))
+    library(Cairo)
     CairoPNG("crossclass.bipartite.matching.medoids.png",height=960,width=960)
 }
 

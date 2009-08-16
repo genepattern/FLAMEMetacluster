@@ -11,7 +11,7 @@ for (i in 1:length(concatfiles)) {
 	}
 	else
 	{
-        library(Cairo, lib.loc=Sys.getenv("R_LIBS"))
+        library(Cairo)
 	    CairoPNG(filename = paste(filename, "pairplots.png", sep = "."), width = 960, height = 960)
 	}
 	pairs(datafile[1:dim], main = paste(filename, sep = " "), pch = ".",
@@ -30,7 +30,14 @@ create.pairplot.legend <- function(num.colors)
     ## COLOR KEY ##
     ###############
 
-    CairoPNG("pairplots_legend.png", width=640, height=500)
+    if (.Platform$OS.type == "windows")
+    {
+	    png(filename = "pairplots_legend.png", width = 640, height = 500)
+	}
+	else
+	{
+        CairoPNG("pairplots_legend.png", width=640, height=500)
+    }
 
     colors <- rainbow(num.colors)
     vec <- c(1:num.colors)

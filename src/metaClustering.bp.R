@@ -89,6 +89,11 @@ if(libdir!='')
     install.required.packages(libdir)
 }
 
+if(Sys.getenv("R_LIBS") != '')
+{
+    setLibPath(c(Sys.getenv("R_LIBS"), .libPaths()))
+}
+
 temp.dir <- paste(wkdir, "temp", sep="/")
 dir.create(temp.dir)
 unzip.file(OptimalG, temp.dir)

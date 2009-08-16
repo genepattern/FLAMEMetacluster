@@ -235,8 +235,8 @@ write.table (metafile, file = paste(classname,"medoids.metacluster.assignments.t
 	}
 	else
 	{
-        library(Cairo, lib.loc=Sys.getenv("R_LIBS"))
-        CairoPNG(filename = paste(classname,"metacluster.silhouette.png",sep = "."),width = 960,height = 960)	
+        library(Cairo)        
+        CairoPNG(filename = paste(classname,"metacluster.silhouette.png",sep = "."),width = 960,height = 960)
 	}
 	plot(pamclus, ask = FALSE, which.plots = 2)
 	dev.off()
@@ -250,7 +250,7 @@ write.table (metafile, file = paste(classname,"medoids.metacluster.assignments.t
 	}
 	else
 	{
-        library(Cairo, lib.loc=Sys.getenv("R_LIBS"))
+        library(Cairo)        
 	    CairoPNG(filename = paste(mtitle, "png", sep = "."), width = 960, height = 960)
 	}
 	clusplot(pamclus, main = mtitle, lines = 0, labels = 4)
