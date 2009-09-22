@@ -35,7 +35,7 @@ libdir, #full pathname to where FLAME program files are kept
 OptimalG, #full pathname to OptimalG,zip
 mode.estimation ="F",
 step=0.5,
-output.intermediate.results, #default is no
+output.intermediate.results="F", 
 output.prefix, #<studyname_dataname>
 sample.class=NA #optional; full pathname to supporting file describing class membership of samples
 ){
@@ -144,11 +144,12 @@ if (class.difference == "T") {
 		class.param <- c()
 		class.locations <- c()
 		for (i in 1:length(samples)){
-		    sampleIndex <- grep(samples[i],allconcatfiles)
+		    sampleIndex <- grep(paste(samples[i], ".", dist, ".", sep=''), allconcatfiles)
 		    if(length(sampleIndex) == 0)
 		    {
 		        stop(paste("Could not find sample", samples[i]))
 		    }
+
 			this.concat <- allconcatfiles[sampleIndex]
 			class.concat <- c(class.concat, this.concat)
 			this.param <- allparamfiles[grep(samples[i],allparamfiles)]
@@ -221,6 +222,8 @@ all.memberfiles <- all.memberfiles [grep("matched.",all.memberfiles)]
 all.paramfiles <- dir(pattern="parameters.txt")
 all.medoids <- dir(pattern="medoids.txt")
 
+cat("memberfiles: ")
+print(all.memberfiles)
 rearrange.parameters(all.memberfiles,all.paramfiles,all.medoids,n.metaclusters,dist,class.difference,mode.estimation,step,OS) 
 
 #################################
