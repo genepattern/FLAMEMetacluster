@@ -152,9 +152,9 @@ if (class.difference == "T") {
 
 			this.concat <- allconcatfiles[sampleIndex]
 			class.concat <- c(class.concat, this.concat)
-			this.param <- allparamfiles[grep(samples[i],allparamfiles)]
+			this.param <- allparamfiles[grep(paste(samples[i], ".", dist, ".", sep=''), allparamfiles)]
 			class.param <- c(class.param, this.param)
-			this.locations <- alllocationsfiles[grep(samples[i],alllocationsfiles)]
+			this.locations <- alllocationsfiles[grep(paste(samples[i], ".", dist, ".", sep=''), alllocationsfiles)]
 			class.locations <- c(class.locations, this.locations)
 		}
 		all.concat[,,c] <- as.array(rep(class.concat,len=num.samples))
@@ -222,8 +222,6 @@ all.memberfiles <- all.memberfiles [grep("matched.",all.memberfiles)]
 all.paramfiles <- dir(pattern="parameters.txt")
 all.medoids <- dir(pattern="medoids.txt")
 
-cat("memberfiles: ")
-print(all.memberfiles)
 rearrange.parameters(all.memberfiles,all.paramfiles,all.medoids,n.metaclusters,dist,class.difference,mode.estimation,step,OS) 
 
 #################################
