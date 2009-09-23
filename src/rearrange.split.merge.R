@@ -3,7 +3,7 @@ rearrange.parameters <- function(all.memberfiles,all.paramfiles,all.medoids,n.me
 		paramfile <- all.paramfiles[i]
 		filename <- strsplit(paramfile,paste('.',dist,sep=''))[[1]][1]
 		cat(filename,'\n')
-		memberfile <- all.memberfiles[grep(filename,all.memberfiles)]
+		memberfile <- all.memberfiles[grep(paste(filename, ".", dist, ".", sep=''),all.memberfiles)]
 		if (class.difference=="T"){
 			prefix <- strsplit(memberfile,paste('.',filename,sep=''))[[1]][1]
 			classname = strsplit(prefix,"matched.")[[1]][2]
@@ -20,7 +20,9 @@ suppressMessages(library(cluster))
 member <- read.table(memberfile,header=T)
 parameters <- read.table(paramfile,header=T)
 medoids <- read.table(medoidfile,header=T)
-dim = ncol(parameters)- 5
+#dim = ncol(parameters)- 5
+dim <- length(grep("Var", colnames(parameters)))
+
 filename <- strsplit(paramfile, paste(".",dist,sep=''))[[1]][1]
 ndist=switch(dist, "mvn"=1,"mvt"=2, "msn"=3, "mst"=4)
 
