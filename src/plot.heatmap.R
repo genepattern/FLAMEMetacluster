@@ -58,7 +58,7 @@ plotHeatmap <- function(paramfiles, concatfiles, dist) {
         colnames(heatmap) <- column.names
     }
 
-	heatmap.2(heatmap, Colv=F, Rowv=F, col = bluered(75),scale = "column", dendrogram="none", key=F, symkey=F, keysize = 0.3,
+	heatmap.2(heatmap, Colv=F, Rowv=F, col = heatmap.colors,scale = "column", dendrogram="none", key=F, symkey=F, keysize = 0.3,
 	    margin=c(15, 7) , density.info = "none", cellnote=round(heatmap,1), notecex=2, notecol="black", trace="none",
 	    rowsep=nrow(heatmap)-3, sepcolor="white", main = paste(fname,"cluster log intensities",sep=''))
 
