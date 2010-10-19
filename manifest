@@ -75,4 +75,4 @@ requiredPatchURLs=
 serializedModel=
 taskType=Flow Cytometry
 userid=xinlihu
-version=Fixed heatmap colors to go from blue to red
+version=Resolved errors with installing compositions R package on Windows
