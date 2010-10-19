@@ -337,6 +337,6 @@ install.required.packages <- function(libdir)
 
 	if(!is.package.installed(libdir, "compositions"))
     {
-		install.package(libdir, "compositions_0.91-6_modified.zip", "compositions_0.91-6_modified.tgz","compositions_0.91-6_modified.tar.gz")
+		install.package(libdir, "compositions_0.91-6.zip", "compositions_0.91-6_modified.tgz","compositions_0.91-6_modified.tar.gz")
 	}
 }
