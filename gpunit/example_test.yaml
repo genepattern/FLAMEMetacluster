@@ -1,0 +1,11 @@
+name: FLAMEMetacluster example
+module: FLAMEMetacluster
+params:
+    optimal.g.mixture.model: "ftp://ftp.broadinstitute.org/pub/genepattern/example_files/FLAME/SMALLphospho.OptimalG.zip"
+    sample.class: "ftp://ftp.broadinstitute.org/pub/genepattern/example_files/FLAME/SMALL_phospho.AllSamples.txt"
+    estimate.mode: "T"
+    estimation.increment: "0.1"
+    output.intermediate.results: F
+    output.prefix: <optimal.g.mixture.model_basename>
+assertions:
+        jobStatus: success
