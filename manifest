@@ -75,4 +75,4 @@ requiredPatchURLs=
 serializedModel=
 taskType=Flow Cytometry
 userid=xinlihu
-version=Resolved errors with installing compositions R package on Windows
+version=Pin common.R to a copy from the v. 6 release of this module
