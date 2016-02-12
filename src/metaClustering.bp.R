@@ -22,8 +22,14 @@ cleanup <- function()
     for (i in 1:length(files))
     {
         if(regexpr(paste(".zip","$",sep=""), tolower(files[[i]]))[[1]] == -1
-            && tolower(files[[i]]) != "stderr.txt" && tolower(files[[i]]) != "cmd.out"
-            && tolower(files[[i]]) != "stdout.txt")
+            && tolower(files[[i]]) != "stderr.txt" 
+            && tolower(files[[i]]) != "cmd.out"
+            && tolower(files[[i]]) != "stdout.txt"
+            && tolower(files[[i]]) != ".epilogue.pbs"
+            && tolower(files[[i]]) != "command.pbs"
+            && tolower(files[[i]]) != ".command.pbs"
+            && tolower(files[[i]]) != ".epilogue.sh"
+)
         {
             file.remove(files[[i]])
         }
